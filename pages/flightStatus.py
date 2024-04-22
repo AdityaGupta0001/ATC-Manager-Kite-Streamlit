@@ -6,11 +6,15 @@ import pandas as pd
 import json
 import folium
 import streamlit_folium
+import os
 
-with open("../client/states.json", 'r') as file:
+current_dir = os.path.dirname(os.path.abspath(__file__))
+states_file_path = os.path.join(current_dir, '..', 'states.json')
+
+with open(states_file_path, 'r') as file:
     data = json.load(file)
     data["page_state"] = ""
-with open("../client/states.json", 'w') as file:
+with open(states_file_path, 'w') as file:
     json.dump(data, file, indent=4)
 
 st.set_page_config(initial_sidebar_state="collapsed",layout='wide', page_title='Kite - ATC Simulator', page_icon=':bar_chart:')
@@ -35,10 +39,10 @@ input_value = st.text_input("Enter flight ID: ",key="input1", disabled=False)
 
 if input_value=="":
     st.error("Please enter a flight ID")
-    with open("../client/states.json", 'r') as file:
+    with open(states_file_path, 'r') as file:
                     data = json.load(file)
                     data["show_flight_status"] = "False"
-    with open("../client/states.json", 'w') as file:
+    with open(states_file_path, 'w') as file:
         json.dump(data, file, indent=4)
 else:
     current_date = str(datetime.date.today()).replace("-","")
@@ -70,10 +74,10 @@ else:
 
         if formatted_flight_dates==[]:
             date = st.selectbox("Select departure date", options=[])
-            with open("../client/states.json", 'r') as file:
+            with open(states_file_path, 'r') as file:
                     data = json.load(file)
                     data["show_flight_status"] = "False"
-            with open("../client/states.json", 'w') as file:
+            with open(states_file_path, 'w') as file:
                 json.dump(data, file, indent=4)
         else:
             date = st.selectbox("Select departure date", options=formatted_flight_dates)
@@ -92,16 +96,16 @@ def f():
     with open("temp_status.json", 'w') as file:
         json.dump(filtered_flight, file, indent=4)
 
-    with open("../client/states.json", 'r') as file:
+    with open(states_file_path, 'r') as file:
             data = json.load(file)
             data["show_flight_status"] = "True"
-    with open("../client/states.json", 'w') as file:
+    with open(states_file_path, 'w') as file:
         json.dump(data, file, indent=4)
 
 button = st.button("Submit", on_click=f, key='butt',type='primary')
 st.write("---")
 
-with open("../client/states.json", 'r') as file:
+with open(states_file_path, 'r') as file:
     data = json.load(file)
     if data["show_flight_status"]=="True":
         with open("temp_status.json", 'r') as file:

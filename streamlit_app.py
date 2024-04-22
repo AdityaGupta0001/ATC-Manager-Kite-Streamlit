@@ -23,7 +23,7 @@ try:
 except:
     pass
 
-with open("../client/states.json", 'r') as file:
+with open("states.json", 'r') as file:
     data = json.load(file)
 
 if data['page_state'] in ['airports','flightStatus','weather']:
@@ -143,10 +143,10 @@ else:
                                             time.sleep(4)
                                         st.success("Logged In")
                                         st.balloons()
-                                        with open("../client/states.json", 'r') as file:
+                                        with open("states.json", 'r') as file:
                                             data = json.load(file)
                                             data["logged_in"] = "True"
-                                        with open("../client/states.json", 'w') as file:
+                                        with open("states.json", 'w') as file:
                                             json.dump(data, file, indent=4)
                                         time.sleep(4)
                                         st.rerun()
@@ -319,10 +319,10 @@ else:
             unsafe_allow_html=True,
         )
         def f():
-            with open("../client/states.json", 'r') as file:
+            with open("states.json", 'r') as file:
                 data = json.load(file)
                 data["logged_in"] = "False"
-            with open("../client/states.json", 'w') as file:
+            with open("states.json", 'w') as file:
                 json.dump(data, file, indent=4)
             st.rerun()
         
@@ -355,10 +355,10 @@ else:
                 def see_airports():
                     global page
                     time.sleep(0.5)
-                    with open("../client/states.json", 'r') as file:
+                    with open("states.json", 'r') as file:
                         data = json.load(file)
                         data["page_state"] = "airports"
-                    with open("../client/states.json", 'w') as file:
+                    with open("states.json", 'w') as file:
                         json.dump(data, file, indent=4)
                 st.write("##")
                 st.write("##")
@@ -376,10 +376,10 @@ else:
                 def see_weather():
                     global page
                     time.sleep(0.5)
-                    with open("../client/states.json", 'r') as file:
+                    with open("states.json", 'r') as file:
                         data = json.load(file)
                         data["page_state"] = "weather"
-                    with open("../client/states.json", 'w') as file:
+                    with open("states.json", 'w') as file:
                         json.dump(data, file, indent=4)
                 st.write("##")
                 st_lottie(animations[1],height=407)
@@ -392,10 +392,10 @@ else:
                 def see_flight_status():
                     global page
                     time.sleep(0.5)
-                    with open("../client/states.json", 'r') as file:
+                    with open("states.json", 'r') as file:
                         data = json.load(file)
                         data["page_state"] = "flightStatus"
-                    with open("../client/states.json", 'w') as file:
+                    with open("states.json", 'w') as file:
                         json.dump(data, file, indent=4)
                 st.write("##")
                 st_lottie(animations[2],height=407)

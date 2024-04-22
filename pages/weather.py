@@ -6,13 +6,17 @@ import geocoder
 import json
 import pymysql
 import pandas as pd
+import os
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+states_file_path = os.path.join(current_dir, '..', 'states.json')
 
 warnings.filterwarnings('ignore')
 
-with open("../client/states.json", 'r') as file:
+with open(states_file_path, 'r') as file:
     data = json.load(file)
     data["page_state"] = ""
-with open("../client/states.json", 'w') as file:
+with open(states_file_path, 'w') as file:
     json.dump(data, file, indent=4)
 
 st.set_page_config(initial_sidebar_state="collapsed",layout='wide', page_title='Kite - ATC Simulator', page_icon=':sun_small_cloud:')
@@ -52,15 +56,15 @@ def f():
     if response['cod']=='404':
         st.error("City not found")
     else:
-        with open("../client/states.json", 'r') as file:
+        with open(states_file_path, 'r') as file:
             data = json.load(file)
             data["show_metrics"] = "True"
-        with open("../client/states.json", 'w') as file:
+        with open(states_file_path, 'w') as file:
             json.dump(data, file, indent=4)
 
 button = st.button("Submit", on_click=f, key='butt',type='primary')
 
-with open("../client/states.json", 'r') as file:
+with open(states_file_path, 'r') as file:
     data = json.load(file)
     if data["show_metrics"]=="True":
         CITY = input_value
@@ -108,15 +112,15 @@ def f2():
     if response['cod']=='404':
         st.error("City not found")
     else:
-        with open("../client/states.json", 'r') as file:
+        with open(states_file_path, 'r') as file:
             data = json.load(file)
             data["show_airport_weather_metrics"] = "True"
-        with open("../client/states.json", 'w') as file:
+        with open(states_file_path, 'w') as file:
             json.dump(data, file, indent=4)
 
 button2 = st.button("Submit", on_click=f2, key='butt2',type='primary')
 
-with open("../client/states.json", 'r') as file:
+with open(states_file_path, 'r') as file:
     data = json.load(file)
     if data["show_airport_weather_metrics"]=="True":
         CITY = region_name

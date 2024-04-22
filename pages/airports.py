@@ -5,8 +5,12 @@ import pandas as pd
 import warnings
 import pymysql
 import streamlit_shadcn_ui as ui
+import os
 
 warnings.filterwarnings('ignore')
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+states_file_path = os.path.join(current_dir, '..', 'states.json')
 
 st.set_page_config(initial_sidebar_state="collapsed",layout='wide', page_title='Kite - ATC Simulator', page_icon=':airplane_departure:')
 st.markdown(
@@ -20,10 +24,10 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-with open("../client/states.json", 'r') as file:
+with open(states_file_path, 'r') as file:
     data = json.load(file)
     data["page_state"] = ""
-with open("../client/states.json", 'w') as file:
+with open(states_file_path, 'w') as file:
     json.dump(data, file, indent=4)
 
 st.title(" :airplane_departure: Airport Data")
