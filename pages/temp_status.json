@@ -1,0 +1,133 @@
+{
+    "identification": {
+        "number": {
+            "default": "AI430",
+            "alternative": "None"
+        },
+        "callsign": "None",
+        "codeshare": "None"
+    },
+    "status": {
+        "live": false,
+        "text": "Scheduled",
+        "estimated": "None",
+        "ambiguous": false,
+        "generic": {
+            "status": {
+                "text": "scheduled",
+                "type": "departure",
+                "color": "gray",
+                "diverted": "None"
+            },
+            "eventTime": {
+                "utc": "None",
+                "local": "None"
+            }
+        }
+    },
+    "aircraft": {
+        "model": {
+            "code": "321",
+            "text": "None"
+        },
+        "registration": "None",
+        "serialNo": "None",
+        "age": "None",
+        "restricted": "None",
+        "availability": {
+            "serialNo": "None",
+            "age": "None"
+        }
+    },
+    "owner": "None",
+    "airline": {
+        "name": "Air India",
+        "code": {
+            "iata": "AI",
+            "icao": "AIC"
+        }
+    },
+    "airport": {
+        "origin": {
+            "name": "Chennai International Airport",
+            "code": {
+                "iata": "MAA",
+                "icao": "VOMM"
+            },
+            "position": {
+                "latitude": 12.99441,
+                "longitude": 80.180511,
+                "country": {
+                    "name": "India",
+                    "code": "IN"
+                },
+                "region": {
+                    "city": "Chennai"
+                }
+            },
+            "timezone": {
+                "name": "Asia/Kolkata",
+                "offset": 19800,
+                "abbr": "IST",
+                "abbrName": "India Standard Time",
+                "isDst": false
+            },
+            "visible": true
+        },
+        "destination": {
+            "name": "Delhi Indira Gandhi International Airport",
+            "code": {
+                "iata": "DEL",
+                "icao": "VIDP"
+            },
+            "position": {
+                "latitude": 28.5665,
+                "longitude": 77.103081,
+                "country": {
+                    "name": "India",
+                    "code": "IN"
+                },
+                "region": {
+                    "city": "Delhi"
+                }
+            },
+            "timezone": {
+                "name": "Asia/Kolkata",
+                "offset": 19800,
+                "abbr": "IST",
+                "abbrName": "India Standard Time",
+                "isDst": false
+            },
+            "visible": true
+        },
+        "real": "None"
+    },
+    "time": {
+        "scheduled": {
+            "departure_millis": 1714279200000,
+            "departure_date": "20240428",
+            "departure_time": "1010",
+            "departure": 1714279200,
+            "arrival_millis": 1714289700000,
+            "arrival_date": "20240428",
+            "arrival_time": "1305",
+            "arrival": 1714289700
+        },
+        "real": {
+            "departure": "None",
+            "arrival": "None"
+        },
+        "estimated": {
+            "departure": "None",
+            "arrival": "None"
+        },
+        "other": {
+            "eta": "None",
+            "updated_millis": 1713520607000,
+            "updated_date": "20240419",
+            "updated_time": "1526",
+            "updated": 1713520607,
+            "duration": "None"
+        }
+    }
+}
