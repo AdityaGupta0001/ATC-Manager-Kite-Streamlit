@@ -3,12 +3,12 @@ time
 streamlit
 string
 pymysql
-streamlit_lottie
-streamlit_shadcn_ui
-streamlit_option_menu
+streamlit-lottie
+streamlit-shadcn-ui
+streamlit-option-menu
 geocoder
 requests
-streamlit_extras
+streamlit-extras
 pandas
 warnings
 folium
