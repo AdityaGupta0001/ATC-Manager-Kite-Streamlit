@@ -1,0 +1,17 @@
+json
+time
+streamlit
+string
+pymysql
+streamlit_lottie
+streamlit_shadcn_ui
+streamlit_option_menu
+geocoder
+requests
+streamlit_extras
+pandas
+warnings
+folium
+pyflightdata
+datetime
+plotly
