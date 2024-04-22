@@ -19,10 +19,9 @@ try:
         for command in commands:
             cursor.execute(command)
     connection.commit()
+    connection.close()
 except:
     pass
-finally:
-    connection.close()
 
 with open("../client/states.json", 'r') as file:
     data = json.load(file)
