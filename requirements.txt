@@ -1,6 +1,4 @@
-time
 streamlit
-string
 pymysql
 streamlit-lottie
 streamlit-shadcn-ui
@@ -12,5 +10,4 @@ pandas
 warnings
 folium
 pyflightdata
-datetime
 plotly
