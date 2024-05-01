@@ -3,6 +3,7 @@ pymysql
 streamlit-lottie
 streamlit-shadcn-ui
 streamlit-option-menu
+streamlit-folium
 geocoder
 requests
 streamlit-extras

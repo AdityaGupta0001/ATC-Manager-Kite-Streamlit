@@ -1,7 +1,7 @@
 {
-    "logged_in": "True",
-    "show_metrics": "True",
-    "show_airport_weather_metrics": "True",
+    "logged_in": "False",
+    "show_metrics": "False",
+    "show_airport_weather_metrics": "False",
     "show_flight_status": "False",
     "page_state": ""
 }
