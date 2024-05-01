@@ -89,7 +89,7 @@ st.write("---")
 
 st.subheader("Select airport: ")
 
-connection = pymysql.connect(host="localhost", user="root", password="12345", database="Kite")
+connection = pymysql.connect(host=st.secrets['MYSQL_HOST'], user=st.secrets['MYSQL_ROOT'], password=st.secrets['MYSQL_PASSWORD'], database=st.secrets['MYSQL_DATABASE'])
 cur = connection.cursor()
 
 query = "SELECT * from airports;"

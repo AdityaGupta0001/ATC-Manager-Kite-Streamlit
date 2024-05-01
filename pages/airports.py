@@ -33,7 +33,7 @@ with open(states_file_path, 'w') as file:
 st.title(" :airplane_departure: Airport Data")
 st.markdown('<style>div.block-container{padding-top:3rem;}</style>', unsafe_allow_html=True)
 
-connection = pymysql.connect(host="localhost", user=st.secrets['MYSQL_ROOT'], password=st.secrets['MYSQL_PASSWORD'], database="Kite")
+connection = pymysql.connect(host=st.secrets['MYSQL_HOST'], user=st.secrets['MYSQL_ROOT'], password=st.secrets['MYSQL_PASSWORD'], database=st.secrets['MYSQL_DATABASE'])
 cur = connection.cursor()
 
 query = "SELECT airports.*, countries.* FROM airports JOIN countries ON airports.country_code = countries.code;"

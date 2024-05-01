@@ -11,7 +11,7 @@ import time
 import json
 
 try:
-    connection = pymysql.connect(host="localhost", user=st.secrets['MYSQL_ROOT'], password=st.secrets['MYSQL_PASSWORD'], database="Kite")
+    connection = pymysql.connect(host=st.secrets['MYSQL_HOST'], user=st.secrets['MYSQL_ROOT'], password=st.secrets['MYSQL_PASSWORD'], database=st.secrets['MYSQL_DATABASE'])
     with open('commands.sql', 'r') as file:
         sql_commands = file.read()
     commands = sql_commands.split(';')
@@ -129,7 +129,7 @@ else:
                 with col2:
                     def f(email_,password_):
                         try:
-                            connection = pymysql.connect(host="localhost", user=st.secrets['MYSQL_ROOT'], password=st.secrets['MYSQL_PASSWORD'], database="Kite")
+                            connection = pymysql.connect(host=st.secrets['MYSQL_HOST'], user=st.secrets['MYSQL_ROOT'], password=st.secrets['MYSQL_PASSWORD'], database=st.secrets['MYSQL_DATABASE'])
                             cur = connection.cursor()
                             query = f'SELECT password from users where email = "{email_}"'
                             cur.execute(query)
@@ -206,7 +206,7 @@ else:
             return passcheck
 
         def existinguser(email_):
-            connection = pymysql.connect(host="localhost", user=st.secrets['MYSQL_ROOT'], password=st.secrets['MYSQL_PASSWORD'], database="Kite")
+            connection = pymysql.connect(host=st.secrets['MYSQL_HOST'], user=st.secrets['MYSQL_ROOT'], password=st.secrets['MYSQL_PASSWORD'], database=st.secrets['MYSQL_DATABASE'])
             cur = connection.cursor()
             query = f'SELECT * from users where email = "{email_}"'
             cur.execute(query)
@@ -235,16 +235,17 @@ else:
                                     st.error("User already exists")
                                 else:
                                     try:
-                                        connection = pymysql.connect(host="localhost", user=st.secrets['MYSQL_ROOT'], password=st.secrets['MYSQL_PASSWORD'], database="Kite")
+                                        connection = pymysql.connect(host=st.secrets['MYSQL_HOST'], user=st.secrets['MYSQL_ROOT'], password=st.secrets['MYSQL_PASSWORD'], database=st.secrets['MYSQL_DATABASE'])
                                         cur = connection.cursor()
-                                        query = f'INSERT INTO USERS(username,email,password) VALUES("{username_}","{email_}","{password_}")'
+                                        query = f'INSERT INTO users(username,email,password) VALUES("{username_}","{email_}","{password_}")'
                                         cur.execute(query)
                                         connection.commit()
                                         connection.close()
                                         st.success("Signed up successfully")
                                         st.balloons()
                                         st.success("Please login with your credentials")
-                                    except:
+                                    except Exception as e:
+                                        print(e)
                                         st.error("Something wrong happened")
                     st.write("##")
 
